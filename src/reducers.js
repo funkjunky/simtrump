@@ -1,13 +1,8 @@
 import { combineReducers } from 'redux';
-
-import balls from './reducers/balls';
-import walls from './reducers/walls';
-import game from './reducers/game';
+import buttons from './reducers/buttons';
 
 const reducers = combineReducers({
-    balls,
-    walls,
-    game
+    buttons
 });
 
 export default reducers;

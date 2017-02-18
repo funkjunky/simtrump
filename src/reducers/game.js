@@ -1,18 +1,14 @@
 const initialState = {
-    ballCD: 0
+    date: new Date('January 20, 2017 9:00:00')
 };
 
-const game = (state = initialState, action) => {
-    switch(action.type) {
-        case 'REDUCE_BALL_CD':
+const TIME_MODIFIER = 60 * 60 * 6;  //4 seconds a day
+const game = (state, { type, dt }) => {
+    switch(type) {
+        case 'INC_DATE':
             return {
                 ...state,
-                ballCD: state.ballCD - action.dt
-            };
-        case 'SET_BALL_CD':
-            return {
-                ...state,
-                ballCD: action.ballCD
+                date: date + dt * timeModifier
             };
         default:
             return state;

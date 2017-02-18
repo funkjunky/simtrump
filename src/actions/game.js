@@ -1,9 +1,4 @@
-export const reduceBallCD = (dt) => ({
-    type: 'REDUCE_BALL_CD',
+export const incDate = dt => ({
+    type: 'INC_DATE',
     dt
-});
-
-export const setBallCD = (ballCD) => ({
-    type: 'SET_BALL_CD',
-    ballCD
 });

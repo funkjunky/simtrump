@@ -20,53 +20,64 @@
 	*- 20 pack of timbits and a large latte\
 	*- setup new seed project\
 	*- save this TODO to the new project\
-	- hollow out project\
-	- git init, git commit first\
-	- setup timer wheree every 10ms is an hour. Start clock at donald trump\'92s election win.\
-	- show clock ( vector text )\
+	*- hollow out project\
+	*- git init, git commit first\
 	(11:30)\
-	- setup 4 zones on the left, for directionals,\
-		- make the stages for each rect\
-		- make a rect for each one, red, blue, gray, gray\
-	- when up,down,left,right are pressed, change the colour\
-		- make actions for controller\
-		- polling for button to set those actions. setInterval 1 [on game pad connect]\
-			- clearinterval on gamepad disconnect\
-		- reducers for controller\
-		- in zones, change colour based on controller.directions\
+	*- setup 4 zones on the left, for directionals,\
+		*- make the stages for each rect\
+		*- make a rect for each one, red, blue, gray, gray\
+	*- setup buttons on right with lots of space for text\
+		*- sprites for buttons\
+		*- finish html\
 	(12:30)\
-	- setup buttons on right with lots of space for text\
-		- circle and letter, fill circle when pressed\
-	- scenarios\
-		- write two scenarios in object form\
-			\{ question: \'91fdsfdsf\'92, region: \'91red\'92, answers: \{ x: \{ label: \'92sdf\'92, response: \'92trump talk\'92, following: []], y: [\'91sdfs\'92, \'91spicer talk\'92]\
-		- when loading the scenarios, give them ids\
-	(14:30)\
+	*- fill in\
+		*- connect components\
+		*- setup controller input\
+			*- polling for button to set those actions. setInterval 1 [on game pad connect]\
+				*- clearinterval on gamepad disconnect\
+			*- dispatching actions\
+	(13:30)\
+	*- scenarios\
+		*- write two scenarios in object form\
+			\{ question: \'91fdsfdsf\'92, region: \'91red\'92, responses: \{ x: \{ label: \'92sdf\'92, response: \'92trump talk\'92, following: []], y: [\'91sdfs\'92, \'91spicer talk\'92]\
+	*- setup the scenarios in the reducers\'85 all data figured out\
+		*- when loading the scenarios, give them ids\
+	(15:30)\
+\
+	- compiled and no errors\
+	- get all the graphics showing up!\
+\
+	- when up,down,left,right are pressed, change the colour\
+		- in zones, change colour based on controller.directions\
+	- setup timer wheree every 10ms is an hour. Start clock at donald trump\'92s election win.\
+	- show clock\
 	- director\
 		- queue of events to respond to\
 		- nextScenario date in unix timestamp, set initially to current date + random\
 		- when currentDate is over nextScenario, present it and set the next one.\
 		- present question and x,y,a,b\
+			- a is ALWAYS do nothing. Present a random extra response, when doing nothing. A mstupid meaningless thing.\
 		- when region direction AND a button is pressed, can respond (watcher?).\
-	(16:30)\
+	(17:30)\
 	~~ bit of a game??? ~~\
 \
 	- make a talking donald trump bust\
 	- make the talking come over time, like an RPG, while talking bust\
-	(18:00)\
+	- choose font\
+	(19:00)\
 \
 	- make some protestors\
 	- add protests\
-	(20:00)\
+	(21:00)\
 \
 	- add following events\
 		- after seconds, and after days.\
 	- add responses while waiting for events.\
-	(22:00)\
+	(23:00)\
 \
 	- get riot sound effect\
 	- make wonky music\
-	(22:30)\
+	(24:30)\
 \
 	- make spicer bust and kellyanne bust\
-	(24:00)}
+	(1:00)}
