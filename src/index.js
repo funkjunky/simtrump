@@ -13,7 +13,8 @@ import App from './components/App';
 import initKeyEvents from './initKeyEvents';
 import { updateButtons } from './actions/buttons';
 import { queueQuestion } from './actions/queue';
-import { questions, extraResponses } from '../../../questions';
+import { buttonUp } from './actions/buttonUp';
+import { questions, extraResponses } from './questions';
 
 let sagaMiddleware = createSagaMiddleware();
 let store = createStore(
@@ -49,13 +50,19 @@ const mapping = {
     3: 'y',
     2: 'x',
     1: 'b',
-    0: 'a'
+    0: 'a',
+    12: 'up',
+    13: 'down',
+    14: 'left',
+    15: 'right',
 };
 const getMyButtons = buttons => {
     const myButtons = {};
     buttons
-        .filter((b, i) => mapping[i])
-        .forEach((b, i) => myButtons[mapping[i]] = b.pressed);
+        .forEach((b, i) => {
+            if(mapping[i])
+                myButtons[mapping[i]] = b.pressed
+        });
 
     return myButtons;
 };
@@ -74,13 +81,11 @@ let gamepadInterval = setInterval(() => {
     const lastButtons = store.getState().buttons;
     const buttons = getMyButtons(gp.buttons);
     if(!objEq(lastButtons, buttons)) {
-        console.log('lastbutton: ', lastButtons);
+        console.log('current button: ', buttons);
         store.dispatch(updateButtons(buttons));
+        Object.values(mapping).forEach(key => {
+            if(!buttons[key] && lastButtons[key])
+                store.dispatch(buttonUp(key));
+        });
     }
-    /*
-    gp.buttons.forEach((b, i) => {
-        if(b.pressed)
-            console.log('button pressed, ', i);
-    });
-    */
 }, 1);

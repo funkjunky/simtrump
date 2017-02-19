@@ -44,40 +44,64 @@
 		*- when loading the scenarios, give them ids\
 	(15:30)\
 \
-	- compiled and no errors\
-	- get all the graphics showing up!\
+	*- compiled and no errors\
+	*- get all the graphics showing up!\
+	(17:00)\
 \
-	- when up,down,left,right are pressed, change the colour\
-		- in zones, change colour based on controller.directions\
-	- setup timer wheree every 10ms is an hour. Start clock at donald trump\'92s election win.\
-	- show clock\
-	- director\
-		- queue of events to respond to\
-		- nextScenario date in unix timestamp, set initially to current date + random\
-		- when currentDate is over nextScenario, present it and set the next one.\
-		- present question and x,y,a,b\
-			- a is ALWAYS do nothing. Present a random extra response, when doing nothing. A mstupid meaningless thing.\
-		- when region direction AND a button is pressed, can respond (watcher?).\
-	(17:30)\
+	*- when up,down,left,right are pressed, change the colour\
+		*- in zones, change colour based on controller.directions\
+	*- flip left and right regions\
+\
+	*- put generic options in questions.js and import into component\
+	- buttonUp saga\
+		*- listens for BUTTON_UP event type\
+		*- selects buttons and asking\
+		*- if region button is pressed and asking with region exists, then answer asking\
+		*- if not, then answer with generic\
+		*- handle reducer in asking, to remove asking\
+		*- create answered reducer\
+		*- talkinghead should show response from last item in answered array\
+			*- if undefined, then one of three random things. random a, random b, random c\
+\
+	*- see that things still work\'85\
+	*- show clock in top right in big font. Nice format, ie. Monday, January 23rd, 2017\
+(20:35)\
+\
+	*- get regional events showing up\
+		*- regional component, well show number (string) of events in asking relevant to region\
+		*- responses well show correct responses, if directions are held\
+\
+	- clock is ticking\
+	- getting new events\
+	- pressing direction gives me responses\
+	- pressing responses, adds to answers and removes asking\
+		- with region\
+		- without region\
+\
+	(20:45)\
+\
 	~~ bit of a game??? ~~\
 \
 	- make a talking donald trump bust\
+		- first see about doubling the size of current image and see it in action\
+		- make animation for new talking trump bust\
 	- make the talking come over time, like an RPG, while talking bust\
 	- choose font\
-	(19:00)\
+	- make everything more animated\'85 perhaps additional frames, or pumping text size or shadow\
+		- highlight day of week and day number when i t changes, also highlight month when it changes, and year when it changes. Highlight quickly fades.\
+	(22:30)\
+\
+	- make spicer bust and kellyanne bust\
+	- make prop images to go overtop of bust pictures, depending on subtype (podium, twitter)\
+	- change depending on type\
 \
 	- make some protestors\
 	- add protests\
-	(21:00)\
-\
-	- add following events\
-		- after seconds, and after days.\
-	- add responses while waiting for events.\
-	(23:00)\
+	(24:00)\
 \
 	- get riot sound effect\
 	- make wonky music\
-	(24:30)\
 \
-	- make spicer bust and kellyanne bust\
-	(1:00)}
+	- add following events\
+		- after seconds, and after days.\
+	- add responses while waiting for events.}

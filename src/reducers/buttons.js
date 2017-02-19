@@ -1,4 +1,4 @@
-const initialState = { y: false, x: false, b: false, a: false };
+const initialState = { y: false, x: false, b: false, a: false, up: false, left: false, down: false, right: false };
 
 const buttons = (state = initialState, { type, buttons }) => {
     switch(type) {

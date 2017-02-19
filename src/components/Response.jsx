@@ -15,11 +15,11 @@ const buttonTextColor = {
     b: 'red'
 };
 
-const Response = ({ x, y, label, response }) => {
+const Response = ({ x, y, button, label }) => {
     return (
         <Container x={ 0 } y={ y }>
-            <Sprite x={ x } y={ 0 } image={ buttonImgs[label] } />
-            <Text x={ x + 64 } y={ 0 } text={ response } style={{ fill: buttonTextColor[label] }} />
+            <Sprite x={ x } y={ 0 } image={ buttonImg[button] } />
+            <Text x={ x + 64 } y={ 0 } text={ label } style={{ fill: buttonTextColor[button], fontSize: 18 }} />
         </Container>
     );
 }

@@ -3,9 +3,10 @@ const initialState = {
 };
 
 const TIME_MODIFIER = 60 * 60 * 6;  //4 seconds a day
-const game = (state, { type, dt }) => {
+const game = (state = initialState, { type, dt }) => {
     switch(type) {
         case 'INC_DATE':
+            console.log('inc', state);
             return {
                 ...state,
                 date: date + dt * timeModifier
