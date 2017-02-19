@@ -3,6 +3,7 @@ import pixi from 'pixi.js';
 import { Stage, Sprite } from 'react-pixi';
 
 import Title from './Title.jsx';
+import Event from './Event.jsx';
 import TalkingHead from './TalkingHead.jsx';
 import Regions from './Regions.jsx';
 import Responses from './Responses.jsx';
@@ -14,6 +15,7 @@ const App = () => {
     return (
         <Stage>
             <Title />
+            <Event />
             <TalkingHead />
             <Regions />
             <Responses />

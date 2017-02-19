@@ -13,18 +13,40 @@ const trumptalk = [
     require('../../assets/trumptalk1.png')
 ];
 
+const trumpblink = [
+    require('../../assets/trumpblink1.png'),
+    require('../../assets/trumpblink2.png'),
+    require('../../assets/trumpblink3.png'),
+    require('../../assets/trumpblink2.png'),
+    require('../../assets/trumpblink1.png')
+];
+
+const trumphair = [
+    require('../../assets/trumphair1.png'),
+    require('../../assets/trumphair2.png'),
+    require('../../assets/trumphair3.png'),
+    require('../../assets/trumphair4.png'),
+    require('../../assets/trumphair3.png'),
+    require('../../assets/trumphair2.png'),
+    require('../../assets/trumphair3.png'),
+    require('../../assets/trumphair4.png'),
+    require('../../assets/trumphair3.png'),
+    require('../../assets/trumphair2.png'),
+    require('../../assets/trumphair1.png'),
+];
+
 const getRandomTalk = () => [
     {
         type: 'trump-tweet',
-        message: 'random a'
+        message: '"Know when to walk away from the table." The Art of the Deal'
     },
     {
         type: 'trump-tweet',
-        message: 'random b'
+        message: 'People are really liking the new ties and shirts @Macy\'s-they are amazing and selling great!'
     },
     {
         type: 'trump-tweet',
-        message: 'random c'
+        message: 'Finally had a Burger King installed on Air Force One #protein #makeamericahealthyagain'
     }
 ][Math.floor(Math.random() * 3)];
 
@@ -37,7 +59,9 @@ class TalkingHead extends React.Component {
             length: 0,
             message: response.message,
             type: response.type,
-            frame: 1
+            frame: 1,
+            idle: null,
+            idleFrame: 1
         };
         setInterval(() => {
             if(this.state.length < this.state.message.length) {
@@ -50,6 +74,30 @@ class TalkingHead extends React.Component {
             } else
                 this.setState({ frame: 0 });
         }, speed);
+
+        setInterval(() => {
+            if(!this.state.idle)
+                return;
+
+            if(this.state.idleFrame < this.state.idle.length)
+                this.setState({ idleFrame: this.state.idleFrame + 1 });
+        }, speed);
+
+        setInterval(() => {
+            if(this.state.length === this.state.message.length && (!this.state.idle || this.state.idleFrame === this.state.idle.length)) //not talking
+            {
+                if(Math.random() > 0.6)
+                    this.setState({
+                        idle: trumphair,
+                        idleFrame: 0,
+                    });
+                else if(Math.random() > 0.6)
+                    this.setState({
+                        idle: trumpblink,
+                        idleFrame: 0,
+                    });
+            }
+        }, 1000);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -62,11 +110,15 @@ class TalkingHead extends React.Component {
     }
 
     render() {
+        let image = trumptalk[this.state.frame];;
+        if(this.state.idle && this.state.message.length === this.state.length)
+            image = this.state.idle[this.state.idleFrame];
+
         return (
-            <Container x={ 0 } y={ 100 }>
-                <Rect x={ 170 } y={ 10 } width={ 630 } height={ 200 } fill={{ color: '0xDDDDDD', alpha: 1 }} />
-                <Sprite x={ -40 } image={ trumptalk[this.state.frame] } scale={ 3 } />
-                <PixelText x={ 170 } y={ 10 } text={ this.state.message.substr(0, this.state.length) } style={{ wordWrap: true, wordWrapWidth: 430 }} />
+            <Container x={ 0 } y={ 130 }>
+                <Rect x={ 170 } y={ 10 } width={ 625 } height={ 150 } fill={{ color: '0xDDDDDD', alpha: 1 }} />
+                <Sprite x={ -30 } image={ image } scale={ 3 } />
+                <PixelText x={ 170 } y={ 10 } text={ this.state.message.substr(0, this.state.length) } style={{ wordWrap: true, wordWrapWidth: 400 }} />
             </Container>
         );
     }

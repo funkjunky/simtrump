@@ -1,7 +1,9 @@
 const asking = (state = [], { type, question, button }) => {
     switch(type) {
         case 'ASK_QUESTION':
-            return state.concat([question.question]);
+            const region = question.region;
+            question = question.question;
+            return state.concat([{ question, region }]);
         //remove answered question
         case 'ANSWER_QUESTION':
             if(question)

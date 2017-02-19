@@ -7,28 +7,28 @@ export const defaultResponses = {
         label: 'Engage with the public through social media',
         messages: [{
             type: 'trump-tweet',
-            message: 'engage with, A'
+            message: 'WHAT THEY ARE SAYING ABOUT THE CLINTON CAMPAIGN’S ANTI-CATHOLIC BIGOTRY'
         }]
     },
     x: {
         label: 'Send the national gaurd',
         messages: [{
             type: 'trump-tweet',
-            message: 'send national, A'
+            message: 'America is safe now that the terrorist protestors are quelled. North Dakota Burned down, but thats ok.'
         }]
     },
     b: {
         label: 'Consult experts in their respective fields',
         messages: [{
             type: 'trump-tweet',
-            message: 'consult experts, A'
+            message: 'Ya know, I heard on Fox News that Russia has a cure for global warming! For when it happens, ya know.'
         }]
     },
     a: {
         label: 'Golf',
         messages: [{
             type: 'trump-tweet',
-            message: 'golf, A'
+            message: 'Beautiful day on my golf course, everyone should come, so green.'
         }]
     }
 }
@@ -37,7 +37,6 @@ let id = 0;
 export const questions = [
     {
         event: `${ liberalNews } Just reported that there were more pigeons than people at the inauguration.`,
-        region: 'left',
         responses: {
             y: {
                 label: 'Portray concerns for the legitimacy of the media',
@@ -64,7 +63,6 @@ export const questions = [
     },
     {
         event: 'The Secretary of education was caught on camera unable to read a book to second grades',
-        region: 'left',
         responses: {
             y: {
                 label: 'Talk about the improvements we must make to education',
@@ -91,7 +89,6 @@ export const questions = [
     },
     {
         event: `Courts have deemed Trump's ban on good looking males unconstitutional`,
-        region: 'right',
         responses: {
             y: {
                 label: `Do an interview with ${ wackyNews }`,
@@ -118,7 +115,6 @@ export const questions = [
     },
     {
         event: `Courts have deemed Trump's ban on good looking males unconstitutional`,
-        region: 'right',
         responses: {
             y: {
                 label: `Do an interview with ${ wackyNews }`,

@@ -4,6 +4,7 @@ import pixi from 'pixi.js';
 import { DisplayObjectContainer as Container } from 'react-pixi';
 
 import PixelText from './PixelText.jsx';
+import PulseText from './PulseDate.jsx';
 
 const dayMapping = [
     'Sunday',
@@ -40,10 +41,20 @@ const suffixDate = day => {
 const Title = ({ date }) => {
     return (
         <Container x={ 0 } y={ 0 }>
-            <PixelText text="SimTrump" style={{ fontSize: 14 }} extra />
             <PixelText
-                style={{ fontSize: 16 }}
-                text={ dayMapping[date.getDay()] + ', ' + monthMapping[date.getMonth()] + ' ' + suffixDate(date.getDate()) + ', ' + date.getFullYear() } x={ 200 } />
+                x={ 10 }
+                text="SimTrump"
+                style={{
+                    fontSize: 14,
+                    dropShadow: true,
+                    dropShadowColor: '#AAAAAA',
+                    dropShadowDistance: 3
+                }}
+                extra />
+            <PulseText text={ dayMapping[date.getDay()] } x={ 420 } />
+            <PulseText text={ monthMapping[date.getMonth()] } x={ 560 } />
+            <PulseText text={ suffixDate(date.getDate()) } x={ 675 } />
+            <PulseText text={ date.getFullYear() } x={ 740 } />
         </Container>
     );
 }

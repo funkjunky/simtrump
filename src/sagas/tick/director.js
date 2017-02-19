@@ -1,15 +1,15 @@
 import { put, select } from 'redux-saga/effects';
 import Pizzicato from 'pizzicato';
 import { incDate } from '../../actions/game';
-import { queueQuestion, popQuestion } from '../../actions/queue';
+import { queueQuestion } from '../../actions/queue';
 import { askQuestion } from '../../actions/asking';
 import { questions, extraResponses } from '../../questions';
 
-const asound = new Pizzicato.Sound(require('../../../assets/out.wav'), () => { asound.play() });
+//const asound = new Pizzicato.Sound(require('../../../assets/out.wav'), () => { asound.play() });
 //const amusic = new Pizzicato.Sound(require('../../../assets/soundcloud.mp3'), () => { amusic.play() });
 
 //random question not already in the queue
-const questionsAvailable = (qs, queue, asking) => qs.filter(q => !queue.some(qq => qq.question.id === q.id) && !asking.some(qq => qq.id === q.id));
+const questionsAvailable = (qs, queue, asking) => qs.filter(q => !queue.some(qq => qq.question.id === q.id) && !asking.some(qq => qq.question.id === q.id));
 const randomQuestion = qs => qs[Math.floor(Math.random() * qs.length)];
 
 const tickDirectorSaga = function* ({ dt }) {

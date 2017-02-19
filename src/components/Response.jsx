@@ -17,10 +17,10 @@ const buttonTextColor = {
     b: 'red'
 };
 
-const Response = ({ x, y, button, label }) => {
+const Response = ({ x, y, button, label, pressed }) => {
     return (
         <Container x={ 0 } y={ y }>
-            <Sprite x={ x } y={ -20 } scale={ 2 } image={ buttonImg[button] } />
+            <Sprite x={ x } y={ -20 } scale={ 2 } image={ buttonImg[button] } alpha={ pressed ? 1 : 0.7 } />
             <PixelText x={ x + 64 } y={ 0 } text={ label } style={{ fill: buttonTextColor[button], fontSize: 14 }} />
         </Container>
     );
