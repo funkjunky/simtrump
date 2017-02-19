@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import pixi from 'pixi.js';
-import { Text, DisplayObjectContainer as Container } from 'react-pixi';
+import { DisplayObjectContainer as Container } from 'react-pixi';
+
+import PixelText from './PixelText.jsx';
 
 const dayMapping = [
     'Sunday',
@@ -38,8 +40,10 @@ const suffixDate = day => {
 const Title = ({ date }) => {
     return (
         <Container x={ 0 } y={ 0 }>
-            <Text text="SimTrump" />
-            <Text text={ dayMapping[date.getDay()] + ', ' + monthMapping[date.getMonth()] + ' ' + suffixDate(date.getDate()) + ', ' + date.getFullYear() } x={ 200 } />
+            <PixelText text="SimTrump" style={{ fontSize: 14 }} extra />
+            <PixelText
+                style={{ fontSize: 16 }}
+                text={ dayMapping[date.getDay()] + ', ' + monthMapping[date.getMonth()] + ' ' + suffixDate(date.getDate()) + ', ' + date.getFullYear() } x={ 200 } />
         </Container>
     );
 }

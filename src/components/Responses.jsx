@@ -5,13 +5,16 @@ import { DisplayObjectContainer as Container } from 'react-pixi';
 import Response from './response.jsx';
 import { defaultResponses, extraResponse } from '../questions';
 
+import Rect from './Rect.jsx';
+
 const Responses = ({ responses }) => {
     return (
-        <Container x={ 250 } y={ 300 }>
-            <Response x={ 20 } y={ 10 } button={ 'y' } { ...responses.y } />
+        <Container x={ 250 } y={ 310 }>
+            <Rect width={ 550 } height={ 260 } fill={{ color: '0x555555' }} />
+            <Response x={ 20 } y={ 15 } button={ 'y' } { ...responses.y } />
             <Response x={ 0 } y={ 80 } button={ 'x' } { ...responses.x } />
-            <Response x={ 30 } y={ 150 } button={ 'b' } { ...responses.b } />
-            <Response x={ 10 } y={ 220 } button={ 'a' } { ...(responses.a || extraResponse) } />
+            <Response x={ 30 } y={ 145 } button={ 'b' } { ...responses.b } />
+            <Response x={ 10 } y={ 210 } button={ 'a' } { ...(responses.a || extraResponse) } />
         </Container>
     );
 };
