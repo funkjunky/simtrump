@@ -7,6 +7,9 @@ import TalkingHead from './TalkingHead.jsx';
 import Regions from './Regions.jsx';
 import Responses from './Responses.jsx';
 
+//maintains pixelation
+pixi.SCALE_MODES.DEFAULT = pixi.SCALE_MODES.NEAREST;
+
 const App = () => {
     return (
         <Stage>

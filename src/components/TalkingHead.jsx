@@ -21,18 +21,17 @@ const getRandomTalk = () => [
     }
 ][Math.floor(Math.random() * 3)];
 
-const TalkingHead = ({ lastAnswer }) => {
-    const response = lastAnswer ? lastAnswer.messages[lastAnswer.messageIndex] : getRandomTalk();
-    console.log('response type: ', response.type);
+const TalkingHead = ({ lastAnswer, answered }) => {
+    const response = lastAnswer ? lastAnswer : getRandomTalk();
     return (
         <Container x={ 0 } y={ 100 }>
-            <Rect x={ 100 } y={ 10 } width={ 700 } height={ 200 } fill={{ color: '0xDDDDDD', alpha: 1 }} />
-            <Sprite x={ 10 } y={ 10 } image={ trumpImage } />
-            <Text x={ 100 } y={ 10 } text={ response.message } />
+            <Rect x={ 170 } y={ 10 } width={ 630 } height={ 200 } fill={{ color: '0xDDDDDD', alpha: 1 }} />
+            <Sprite x={ -40 } image={ trumpImage } scale={ 4 } />
+            <Text x={ 170 } y={ 10 } text={ response.message } style={{ wordWrap: true, wordWrapWidth: 630 }} />
         </Container>
     );
 };
 
 export default connect(
-    ({ answered }) => ({ lastAnswer: answered[answered.length - 1] })
+    ({ answered }) => ({ lastAnswer: answered[answered.length - 1], answered })
 )(TalkingHead);

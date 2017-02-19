@@ -8,6 +8,7 @@ import game from './reducers/game';
 const reducers = combineReducers({
     buttons,
     game,
+    queue,
     asking,
     answered
 });

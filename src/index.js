@@ -19,7 +19,7 @@ import { questions, extraResponses } from './questions';
 let sagaMiddleware = createSagaMiddleware();
 let store = createStore(
     reducers,
-    applyMiddleware(sagaMiddleware, intervalMiddleware(10))
+    applyMiddleware(sagaMiddleware, intervalMiddleware(100))
 );
 
 sagaMiddleware.run(sagas);
@@ -76,14 +76,16 @@ store.dispatch(queueQuestion(
     new Date('January 21, 2017 9:00:00')
 ));
 
+store.dispatch(intervalToggle());
+
 let gamepadInterval = setInterval(() => {
     var gp = navigator.getGamepads()[0];
     const lastButtons = store.getState().buttons;
     const buttons = getMyButtons(gp.buttons);
     if(!objEq(lastButtons, buttons)) {
-        console.log('current button: ', buttons);
+        //console.log('current button: ', buttons);
         store.dispatch(updateButtons(buttons));
-        Object.values(mapping).forEach(key => {
+        ['x', 'y', 'b', 'a'].forEach(key => {
             if(!buttons[key] && lastButtons[key])
                 store.dispatch(buttonUp(key));
         });
