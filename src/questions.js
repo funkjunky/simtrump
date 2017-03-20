@@ -141,7 +141,6 @@ export const questions = [
     },
     {
         event: 'You have a call with Voldemort Poutine regarding Quebecs nuclear programs',
-        region: 'top',
         responses: {
             y: {
                 label: `Talk at length about America's nuclear agreements with Quebec`,
@@ -162,6 +161,84 @@ export const questions = [
                 messages: [{
                     type: 'trump-face',
                     message: 'America is winning. You can have your nukes, but we\'ll still win. Sorry Quebec. Ya know? Sorry.'
+                }]
+            }
+        },
+    },
+    {
+        event: 'A building inspector claims he detected traces of gas in the Oval Office',
+        responses: {
+            y: {
+                label: 'Question legitimacy of media',
+                messages: [{
+                    type: 'trump-tweet',
+                    message: 'GULLIBLE Media believes word of random bozo off street! Not real inspector! WH running in tiptop shape! All code up to date. I know buildings!',
+                }]
+            },
+            x: {
+                label: 'Send Spicer to ensure the public',
+                messages: [{
+                    type: 'trump-face',
+                    message: 'Those are unstantiated claims. We had top-to-bottom inspections done. I\'m sure if there was a gas leak we would have smelled it.'
+                }]
+            },
+            b: {
+                label: `Have kellyanne talk to ${ wackyNews }`,
+                messages: [{
+                    type: 'trump-face',
+                    message: 'There are no leaks. I also think it\'s terrible how the media has resorted to such low-level lies to defame our president. They\'re so desperate for leaks'
+                }]
+            }
+        },
+    },
+    {
+        event: 'New reports claim that two aides hired in the Trump Campaign spent four months "interning" in Moscow.',
+        responses: {
+            y: {
+                label: `Ensure the public the interns were checked, and stay on topic.`,
+                messages: [{
+                    type: 'trump-face',
+                    message: ` I don't know them. There were many people -- very good people -- who helped out with my campaign -- which was extremely successful.`,
+                }]
+            },
+            x: {
+                label: 'Send Spicer',
+                messages: [{
+                    type: 'trump-face',
+                    message: 'I can\'t speak for the entire lives of all the staff who worked on President Trump\'s campaign. But what I can say that everyone there was a real American',
+                }]
+            },
+            b: {
+                label: 'Have Kellyanne gives comforting facts on day time news.',
+                messages: [{
+                    type: 'trump-face',
+                    message: 'If you actually bothered to research those claims, you\'d find that those aides had interned in Moscow as part of an international sciences degree, and they also worked in Bangkok, Johannesburg, and Krakow, among others.',
+                }]
+            }
+        },
+    },
+    {
+        event: 'Trump signs bill to reduce taxes for all real estate businesses building in the United States.',
+        responses: {
+            y: {
+                label: `Ensure the public that the economy well grow.`,
+                messages: [{
+                    type: 'trump-face',
+                    message: `Of course I signed a bill encouraging real estate. I'm a real estate guy. No one builds better than me. So this bill is important, and nobody can assure you that better than me.`
+                }]
+            },
+            x: {
+                label: 'Have Spicer talk',
+                messages: [{
+                    type: 'trump-face',
+                    message: 'President Trump created and signed this bill because with his real estate expertise, he knew precisely just how beneficial it would be for the American people. It\'s going to save people money',
+                }]
+            },
+            b: {
+                label: 'Bring Kellyanne to Wolf and Pals',
+                messages: [{
+                    type: 'trump-face',
+                    message: 'He\'s not doing this for himself. He\'s not involved with his company anymore. He did this, as he does everything, for the good of the American citizens.',
                 }]
             }
         },

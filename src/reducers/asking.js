@@ -7,7 +7,7 @@ const asking = (state = [], { type, question, button }) => {
         //remove answered question
         case 'ANSWER_QUESTION':
             if(question)
-                return state.filter(q => q.id !== question.id);
+                return state.filter(q => q.id !== question.question.id);
             else
                 return state;
         default:
