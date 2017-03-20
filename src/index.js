@@ -79,6 +79,9 @@ store.dispatch(queueQuestion(
 store.dispatch(intervalToggle());
 
 let gamepadInterval = setInterval(() => {
+    if(!gp)
+        return;
+
     var gp = navigator.getGamepads()[0];
     const lastButtons = store.getState().buttons;
     const buttons = getMyButtons(gp.buttons);
