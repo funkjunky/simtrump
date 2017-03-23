@@ -11,27 +11,21 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/static/'
   },
-  plugins: [
-    new webpack.NoErrorsPlugin()
-  ],
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
-        include: path.join(__dirname, 'src'),
-        loaders: ['babel'],
+        include: path.resolve(__dirname, 'src'),
+        loader: 'babel-loader',
+        query: {
+            presets: ['es2015', 'react', 'stage-0']
+        }
       },
       {
         test: /\.(png|jpg|wav|mp3)$/,
         loaders: ['url?limit=100000'],
-        include: path.join(__dirname, 'assets')
+        include: path.resolve(__dirname, 'assets')
       },
-
-      // pixi uses fs.readFileSync and require()s json files
-      {
-        test: /\.json$/,
-        loaders: ['json']
-      }
     ]
   }
 };

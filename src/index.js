@@ -3,7 +3,6 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import { AppContainer } from 'react-hot-loader';
 import { intervalToggle } from './middlewares/reduxinterval';
 
 import sagas from './sagas';
@@ -26,25 +25,12 @@ sagaMiddleware.run(sagas);
 
 initKeyEvents(store);
 
-function renderWithHotReload(RootElement) {
-	render((
-		<AppContainer>
+	render(
     		<Provider store={ store }>
         		<RootElement />
-    		</Provider>
-		</AppContainer>),
+    		</Provider>,
     	document.getElementById('pixi-root')
 	);
-}
-renderWithHotReload(App);
-
-// Hot Module Replacement API
-if (module.hot) {
-  module.hot.accept('./components/App', () => {
-    const NextApp = require('./components/App').default;
-	renderWithHotReload(NextApp);
-  });
-}
 
 const mapping = {
     3: 'y',
