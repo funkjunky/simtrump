@@ -27,7 +27,7 @@ initKeyEvents(store);
 
 	render(
     		<Provider store={ store }>
-        		<RootElement />
+        		<App />
     		</Provider>,
     	document.getElementById('pixi-root')
 	);
