@@ -10,16 +10,18 @@ const protest = require('../../assets/protest.png');
 const reddit = require('../../assets/reddit.png');
 const dollar = require('../../assets/dollar.png');
 
-const Score = ({ scores }) => (
-    <Container x={ 710 } y={ 40 }>
-        <Sprite x={ 0 } y={ 0 } image={ reddit } scale={ 2 } />
-        <PixelText x={ 30 } y={ 5 } style={{ fontSize: 10 }} text={ scores.reddit + 'k subs' } />
-        <Sprite x={ 0 } y={ 25 } image={ dollar } scale={ 2 } />
-        <PixelText x={ 30 } y={ 30 } style={{ fontSize: 10 }} text={ '$' + scores.dollars + 'b' } />
-        <Sprite x={ 0 } y={ 50 } image={ russia } scale={ 2 } />
-        <PixelText x={ 30 } y={ 55 } style={{ fontSize: 10 }} text={ scores.russia + '%' } />
-        <Sprite x={ 0 } y={ 75 } image={ protest } scale={ 2 } />
-        <PixelText x={ 30 } y={ 80 } style={{ fontSize: 10 }} text={ scores.protest + ' mil' } />
+const textProps = { x: 30, style: { fontSize: 10 } };
+
+const Score = ({ x, y, scores }) => (
+    <Container {...{ x, y }}>
+        <Sprite y={ 0 } image={ reddit } scale={ 2 } />
+        <PixelText { ...textProps } y={ 5 } text={ scores.reddit + 'k subs' } />
+        <Sprite y={ 25 } image={ dollar } scale={ 2 } />
+        <PixelText { ...textProps } y={ 30 } text={ '$' + scores.dollars + 'b' } />
+        <Sprite y={ 50 } image={ russia } scale={ 2 } />
+        <PixelText { ...textProps } y={ 55 } text={ scores.russia + '%' } />
+        <Sprite y={ 75 } image={ protest } scale={ 2 } />
+        <PixelText { ...textProps } y={ 80 } text={ scores.protest + ' mil' } />
     </Container>
 );
 

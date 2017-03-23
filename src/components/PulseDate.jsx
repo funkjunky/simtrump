@@ -2,6 +2,7 @@ import React from 'react';
 
 import PixelText from './PixelText.jsx';
 
+//Actually pans in text, not pulses =P
 class PulseDate extends React.Component {
     constructor() {
         super();

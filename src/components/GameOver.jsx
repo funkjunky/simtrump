@@ -4,6 +4,7 @@ import { Sprite, DisplayObjectContainer as Container } from 'react-pixi';
 
 import PixelText from './PixelText.jsx';
 import Rect from './Rect.jsx';
+import Score from './Score.jsx';
 
 const russia = require('../../assets/russia.png');
 const protest = require('../../assets/protest.png');
@@ -23,7 +24,7 @@ const getWinningScore = scores => {
         };
     else if(scores.reddit > 1000)
         return {
-            msg: 'With /r/the_donald reaching 1 million subscribers. Be the rule of Reddit, you are now the supreme world leader! WINNER!',
+            msg: 'With /r/the_donald reaching 1 million subscribers. By the rule of Reddit, you are now the supreme world leader! WINNER!',
             img: reddit
         };
     else if(scores.dollars > 150)
@@ -42,16 +43,7 @@ const GameOver = ({ scores }) => (getWinningScore(scores))
             <Sprite x={ 200 } y={ 100 } image={ getWinningScore(scores).img } scale={ 8 } />
             <PixelText x={ 50 } y={ 200 } style={{ fontSize: 20 }} text={ getWinningScore(scores).msg } />
 
-            <Container x={ 200 } y={ 400 }>
-                <Sprite x={ 0 } y={ 0 } image={ reddit } scale={ 2 } />
-                <PixelText x={ 30 } y={ 5 } style={{ fontSize: 10 }} text={ scores.reddit + 'k subs' } />
-                <Sprite x={ 0 } y={ 25 } image={ dollar } scale={ 2 } />
-                <PixelText x={ 30 } y={ 30 } style={{ fontSize: 10 }} text={ '$' + scores.dollars + 'b' } />
-                <Sprite x={ 0 } y={ 50 } image={ russia } scale={ 2 } />
-                <PixelText x={ 30 } y={ 55 } style={{ fontSize: 10 }} text={ scores.russia + '%' } />
-                <Sprite x={ 0 } y={ 75 } image={ protest } scale={ 2 } />
-                <PixelText x={ 30 } y={ 80 } style={{ fontSize: 10 }} text={ scores.protest + ' mil' } />
-            </Container>
+            <Score x={ 200 } y={ 405 } />
         </Container>
     ) : <Container></Container>;
 

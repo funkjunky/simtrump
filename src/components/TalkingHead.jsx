@@ -63,6 +63,9 @@ class TalkingHead extends React.Component {
             idle: null,
             idleFrame: 1
         };
+
+        //Animations!
+        //moves the talking frame along
         setInterval(() => {
             if(this.state.length < this.state.message.length) {
                 this.setState({ length: this.state.length + 1 });
@@ -75,6 +78,7 @@ class TalkingHead extends React.Component {
                 this.setState({ frame: 0 });
         }, speed);
 
+        //moves the idle frame along!
         setInterval(() => {
             if(!this.state.idle)
                 return;
@@ -83,6 +87,7 @@ class TalkingHead extends React.Component {
                 this.setState({ idleFrame: this.state.idleFrame + 1 });
         }, speed);
 
+        //Randomly sets the animation to hair or blink if idle
         setInterval(() => {
             if(this.state.length === this.state.message.length && (!this.state.idle || this.state.idleFrame === this.state.idle.length)) //not talking
             {

@@ -17,7 +17,7 @@ const App = () => {
     return (
         <Stage>
             <Title />
-            <Score />
+            <Score x={ 710 } y={ 40 } />
             <Event />
             <TalkingHead />
             <Regions />

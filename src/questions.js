@@ -1,3 +1,4 @@
+//All the questions! Thanks to Jane for contributing a few!
 const liberalNews = 'NNC';
 const crazyNews = 'Brightbort';
 const wackyNews = 'Wolf News';

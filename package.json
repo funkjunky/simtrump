@@ -1,7 +1,7 @@
 {
-  "name": "react-pixi-boilerplate",
-  "version": "1.0.1",
-  "description": "A new Webpack boilerplate with hot reloading React components, and error handling on module and component level.",
+  "name": "simtrump",
+  "version": "0.999999",
+  "description": "A game I made using react redux and sagas, with pixi",
   "scripts": {
     "clean": "rimraf dist",
     "build:webpack": "NODE_ENV=production webpack --config webpack.config.prod.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gaearon/react-transform-boilerplate.git"
+    "url": "https://github.com/funkjunky/simtrump"
   },
   "keywords": [
     "react",
@@ -24,14 +24,16 @@
     "edit",
     "webpack",
     "babel",
-    "react-transform"
+    "react-transform",
+    "pixi",
+    "game"
   ],
-  "author": "Dan Abramov <dan.abramov@me.com> (http://github.com/gaearon)",
+  "author": "Jason McCarrell <jason.abz@gmail.com> (http://github.com/funkjunky)",
   "license": "CC0-1.0",
   "bugs": {
-    "url": "https://github.com/gaearon/react-transform-boilerplate/issues"
+    "url": "https://github.com/funkjunky/simtrump/issues"
   },
-  "homepage": "https://github.com/gaearon/react-transform-boilerplate",
+  "homepage": "https://funkjunky.github.io/simtrump/",
   "dependencies": {
     "babel-runtime": "^6.23.0",
     "html5-gamepad": "^1.0.0",

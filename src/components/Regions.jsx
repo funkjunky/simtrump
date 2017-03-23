@@ -41,6 +41,7 @@ class Regions extends React.Component {
     render() {
         const { buttons: { up, down, left, right }, askingCounts } = this.props;
         const none = !(up || down || left || right);
+
         return (
             <Container x={ 0 } y={ 310 }>
                 <Rect x={ 85 } y={ 85 } width={ 75 } height={ 75 } fill={{ color: (none) ? '0xAAAAAA' : '0xDDDDDD' }} />

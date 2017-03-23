@@ -10,6 +10,7 @@ import { questions, extraResponses } from '../../questions';
 
 //random question not already in the queue
 const questionsAvailable = (qs, queue, asking) => qs.filter(q => !queue.some(qq => qq.question.id === q.id) && !asking.some(qq => qq.question.id === q.id));
+//This shows up on load and should load up after answering a question after a time.
 const randomQuestion = qs => qs[Math.floor(Math.random() * qs.length)];
 
 const tickDirectorSaga = function* ({ dt }) {
