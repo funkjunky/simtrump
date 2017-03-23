@@ -4,7 +4,7 @@
   "description": "A game I made using react redux and sagas, with pixi",
   "scripts": {
     "clean": "rimraf dist",
-    "build:webpack": "NODE_ENV=production webpack --config webpack.config.prod.js",
+    "build:webpack": "NODE_ENV=production webpack -p --define process.env.NODE_ENV='\"production\"' --config webpack.config.prod.js > output_client_webpack.log",
     "build": "npm run clean && npm run build:webpack",
     "start": "node devServer.js",
     "lint": "eslint src"
